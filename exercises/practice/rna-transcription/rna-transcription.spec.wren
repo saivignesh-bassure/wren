@@ -1,7 +1,7 @@
 import "./rna-transcription" for DNA
 import "./vendor/wren-testie/testie" for Testie, Expect
 
-Testie.test("TwoFer") { |do, skip|
+Testie.test("RNA Transcription") { |do, skip|
   do.test("empty rna sequence") {
     Expect.that(DNA.toRNA("")).toEqual("")
   }
