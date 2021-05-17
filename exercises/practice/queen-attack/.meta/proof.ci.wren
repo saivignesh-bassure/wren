@@ -1,44 +1,45 @@
-var BOARD = 0...8
-var STARTING = { "black": [0, 3], "white": [7, 3] }
+class Board {
+  static size { 0...8 }
+  static sameSquare(pos, pos2) { pos.join(",") == pos2.join(",") }
+  static contains(pos) { (size.contains(pos[0]) && size.contains(pos[1])) }
+}
 
+var STARTING = { "black": [0, 3], "white": [7, 3] }
 class QueenAttack {
-  static new() { QueenAttack.new({}) }
   construct new(pieces) {
     _white = pieces["white"] || STARTING["white"]
     _black = pieces["black"] || STARTING["black"]
     validate()
   }
+  static new() { QueenAttack.new({}) }
   white { _white }
   black { _black }
   validate() {
-    validatePiece(_white)
-    validatePiece(_black)
-    if (_white.join(",") == _black.join(",")) { Fiber.abort("Queens cannot share the same space") }
+    validatePiece(white)
+    validatePiece(black)
+    if (Board.sameSquare(white,black)) { Fiber.abort("Queens cannot share the same space") }
   }
   validatePiece(piece) {
-    var x = piece[0]
-    var y = piece[1]
-    if (BOARD.contains(x) && BOARD.contains(y)) return
-    Fiber.abort("Queen must be placed on the board")
+    if (!Board.contains(piece)) Fiber.abort("Queen must be placed on the board")
   }
-  pieceAt(y,x) {
-    if (white[0] == y && white[1] == x) return "W"
-    if (black[0] == y && black[1] == x) return "B"
+  pieceAt(square) {
+    if (Board.sameSquare(square,white)) return "W"
+    if (Board.sameSquare(square,black)) return "B"
     return "_"
   }
   toString {
     var s = ""
-    for (y in BOARD) {
-      for (x in BOARD) {
-        s = s + pieceAt(y,x) + " "
+    for (y in Board.size) {
+      for (x in Board.size) {
+        s = s + pieceAt([y,x]) + " "
       }
       s = s.trim() + "\n"
     }
     return s.trim()
   }
 
-  sameRow { _white[0] == _black[0] }
-  sameColumn { _white[1] == _black[1] }
-  sameDiagonal { (_black[0] - _white[0]).abs == (_black[1] - _white[1]).abs }
+  sameRow { white[0] == black[0] }
+  sameColumn { white[1] == black[1] }
+  sameDiagonal { (black[0] - white[0]).abs == (black[1] - white[1]).abs }
   canAttack { sameRow || sameColumn || sameDiagonal }
 }
