@@ -24,7 +24,7 @@ class CuteReporter {
         _fail = _fail + 1
         // System.print("  ❌ %(name) \n     %(error)\n")
         System.print("  ❌ %(name)")
-        _fails.add([name,error])
+        _fails.add([_section,name,error])
     }
     success(name) {
         _success = _success + 1
@@ -34,10 +34,15 @@ class CuteReporter {
     printErrors() {
         System.print()
         for (fail in _fails) {
-            var name = fail[0]
-            var error = fail[1]
-            System.print(Color.RED + Color.BOLD + "● %(_section) -> %(name)" + Color.RESET + "\n")
-            System.print(error)
+            var section = fail[0]
+            var name = fail[1]
+            var error = fail[2]
+            System.print(Color.RED + Color.BOLD + "● %(section) -> %(name)" + Color.RESET + "\n")
+            if (error is String) {
+                System.print(error)
+            } else {
+                System.print(error.error)
+            }
             System.print()
         }
     }
@@ -46,13 +51,15 @@ class CuteReporter {
         var overall = "💯"
         if (_fail > 0) overall = "%(sadEmotion)"
         _groups = []
-        if (_fail > 0) _groups.add("%(Color.RED)✕ %(_fail) failed%(Color.RESET)")
-        if (_skip > 0) _groups.add("☐ %(_skip) skipped")
+        if (_fail > 0) _groups.add("%(Color.RED + Color.BOLD)✕ %(_fail) failed%(Color.RESET)")
+        if (_skip > 0) _groups.add("%(Color.YELLOW + Color.BOLD)☐ %(_skip) skipped%(Color.RESET)")
         if (_success>0) {
             _groups.add("%(Color.GREEN)✓ %(_success) passed%(Color.RESET)")
         } else {
             _groups.add("✓ %(_success) passed")
         }
+        var total = _fail + _skip + _success
+        _groups.add("%(total) total")
 
         System.print("Tests:  %(overall) %(_groups.join(", "))\n")
     }

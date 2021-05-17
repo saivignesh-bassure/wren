@@ -55,10 +55,12 @@ class Testie {
         for (test in _tests) {
             if (test is String) {
                 r.section(test)
+                i = i + 1
                 continue
             }
             if (test.skip) {
                 r.skip(test.name)
+                i = i + 1
                 continue
             }
 
@@ -77,7 +79,7 @@ class Testie {
         r.done()
         Stdout.flush()
 
-        if (first_error && false) {
+        if (first_error) {
             var test = _tests[first_error]
             System.print(Color.BLACK + Color.BOLD + "--- TEST " + "-" * 66 + Color.RESET)
             System.print("%(test.name)\n")
