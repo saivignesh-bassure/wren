@@ -1,12 +1,19 @@
 {
-  "blurb": "Calculate the Hamming difference between two DNA strands.",
-  "authors": ["joshgoebel"],
-  "contributors": [],
+  "authors": [
+    "joshgoebel"
+  ],
   "files": {
-    "solution": ["hamming.wren"],
-    "test": ["hamming.spec.wren"],
-    "example": [".meta/proof.ci.wren"]
+    "solution": [
+      "hamming.wren"
+    ],
+    "test": [
+      "hamming.spec.wren"
+    ],
+    "example": [
+      ".meta/proof.ci.wren"
+    ]
   },
+  "blurb": "Calculate the Hamming difference between two DNA strands.",
   "source": "The Calculating Point Mutations problem at Rosalind",
   "source_url": "http://rosalind.info/problems/hamm/"
 }

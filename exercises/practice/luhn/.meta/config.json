@@ -1,12 +1,19 @@
 {
-  "blurb": "Given a number determine whether or not it is valid per the Luhn formula.",
-  "authors": ["joshgoebel"],
-  "contributors": [],
+  "authors": [
+    "joshgoebel"
+  ],
   "files": {
-    "solution": ["luhn.wren"],
-    "test": ["luhn.spec.wren"],
-    "example": [".meta/proof.ci.wren"]
+    "solution": [
+      "luhn.wren"
+    ],
+    "test": [
+      "luhn.spec.wren"
+    ],
+    "example": [
+      ".meta/proof.ci.wren"
+    ]
   },
+  "blurb": "Given a number determine whether or not it is valid per the Luhn formula.",
   "source": "The Luhn Algorithm on Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/Luhn_algorithm"
 }

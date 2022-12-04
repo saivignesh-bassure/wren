@@ -1,12 +1,19 @@
 {
-  "blurb": "Convert a resistor band's color to its numeric representation",
-  "authors": ["joshgoebel"],
-  "contributors": [],
+  "authors": [
+    "joshgoebel"
+  ],
   "files": {
-    "solution": ["resistor-color.wren"],
-    "test": ["resistor-color.spec.wren"],
-    "example": [".meta/proof.ci.wren"]
+    "solution": [
+      "resistor-color.wren"
+    ],
+    "test": [
+      "resistor-color.spec.wren"
+    ],
+    "example": [
+      ".meta/proof.ci.wren"
+    ]
   },
+  "blurb": "Convert a resistor band's color to its numeric representation",
   "source": "Maud de Vries, Erik Schierboom",
   "source_url": "https://github.com/exercism/problem-specifications/issues/1458"
 }

@@ -1,12 +1,19 @@
 {
-  "blurb": "Create an implementation of the Affine cipher, an ancient encryption algorithm from the Middle East.",
-  "authors": ["joshgoebel"],
-  "contributors": [],
+  "authors": [
+    "joshgoebel"
+  ],
   "files": {
-    "solution": ["affine-cipher.wren"],
-    "test": ["affine-cipher.spec.wren"],
-    "example": [".meta/proof.ci.wren"]
+    "solution": [
+      "affine-cipher.wren"
+    ],
+    "test": [
+      "affine-cipher.spec.wren"
+    ],
+    "example": [
+      ".meta/proof.ci.wren"
+    ]
   },
+  "blurb": "Create an implementation of the Affine cipher, an ancient encryption algorithm from the Middle East.",
   "source": "Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/Affine_cipher"
 }
